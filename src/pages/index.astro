@@ -1,19 +1,85 @@
 ---
 import { getCollection } from "astro:content";
-const blogEntries = await getCollection("blog");
+import MainLayout from "../layouts/MainLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+import { Icon } from "astro-icon/components";
+const blogPosts = await getCollection("blog");
 ---
 
-<ul>
-    {
-        blogEntries.map((blogPostEntry) => (
-            <li>
-                <a href={`/posts/${blogPostEntry.slug}`}>
-                    {blogPostEntry.data.title}
-                </a>
-                <time datetime={blogPostEntry.data.publishedDate.toISOString()}>
-                    {blogPostEntry.data.publishedDate.toDateString()}
-                </time>
-            </li>
-        ))
-    }
-</ul>
+<html>
+    <MainLayout title="Home">
+        <div class="w-full flex flex-col items-center">
+            <div
+                class="border-gray-300 border-l-2 mb-4 p-4 bg-gray-100 bg-opacity-5 w-full flex flex-col items-start gap-4 text-sm"
+            >
+                <p class="">
+                    Hello, my name is <span class="text-gray-300"> Chico </span>
+                    and I am a <span class="text-gray-300"
+                        >Frontend Engineer.</span
+                    >
+                    <br />
+                    I have accumulated almost <span class="text-gray-300"
+                        >10 years</span
+                    > of experience in the field working with companies like: <span
+                        class="text-gray-300">Google</span
+                    >, <span class="text-gray-300">Microsoft</span> and <span
+                        class="text-gray-300">Amazon</span
+                    >.
+                </p>
+                <p>
+                    I love <span class="text-gray-300">teaching</span> and I as much
+                    as I can I contribute to <span class="text-gray-300"
+                        >OpenSource</span
+                    > projects, <span class="text-gray-300">streaming</span> every
+                    friday on youtube!
+                </p>
+            </div>
+            <h2 class="w-full text-base text-gray-200">My Channel</h2>
+            <di
+                class="w-full flex justify-between items-center py-4 pl-4 my-4 border-[1px] border-gray-500 rounded bg-gray-100 bg-opacity-5"
+            >
+                <div class="flex items-center">
+                    <div class="relative">
+                        <img
+                            class="rounded-full border-gray-500 border-[1px]"
+                            width="70"
+                            height="70"
+                            src="https://yt3.googleusercontent.com/ytc/AIdro_kNyxFl6l-pZcXfb6CcuVZLzaogr1gB5WJxfF8dUmACMw=s900-c-k-c0x00ffffff-no-rj"
+                            alt="channel avi"
+                        />
+                        <img
+                            class="rounded-full absolute bottom-0 left-11"
+                            width="20"
+                            height="20"
+                            src="https://yt3.googleusercontent.com/584JjRp5QMuKbyduM_2k5RlXFqHJtQ0qLIPZpwbUjMJmgzZngHcam5JMuZQxyzGMV5ljwJRl0Q=s900-c-k-c0x00ffffff-no-rj"
+                            alt="youtube avi"
+                        />
+                    </div>
+                    <div class="flex flex-col pl-4">
+                        <h3 class="text-gray-200">@chicoo</h3>
+                        <h4>12,000 subscribers</h4>
+                    </div>
+                </div>
+                <Icon name="arrow-up-right-bold" class="mr-4 text-lg" />
+            </di>
+            <h2
+                class="w-full
+                    text-base
+                    text-gray-200"
+            >
+                Posts
+            </h2>
+            <ul class="w-full my-2 flex flex-col items-center text-sm">
+                {
+                    blogPosts.map((blogPost) => (
+                        <BlogPost
+                            slug={blogPost.slug}
+                            title={blogPost.data.title}
+                            publishedDate={blogPost.data.publishedDate}
+                        />
+                    ))
+                }
+            </ul>
+        </div>
+    </MainLayout>
+</html>

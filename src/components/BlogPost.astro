@@ -1,0 +1,18 @@
+---
+const { slug, title, publishedDate } = Astro.props;
+import { format, parseISO } from "date-fns";
+---
+
+<li class="w-full flex justify-between py-2">
+    <a href={`/posts/${slug}`} class="underline underline-offset-4">
+        {title}
+    </a>
+    <time datetime={publishedDate.toISOString()}>
+        {
+            format(
+                parseISO(publishedDate.toISOString().substring(0, 10)),
+                "MMMM dd, yyyy",
+            )
+        }
+    </time>
+</li>
