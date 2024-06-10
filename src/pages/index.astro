@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
+import Social from "../components/Social.astro"
 import BlogPost from "../components/BlogPost.astro";
-import { Icon } from "astro-icon/components";
 const blogPosts = await getCollection("blog");
 ---
 
@@ -10,14 +10,16 @@ const blogPosts = await getCollection("blog");
     <MainLayout title="Home">
         <div class="w-full flex flex-col items-center">
             <div
-                class="border-gray-300 border-l-2 mb-4 p-4 bg-gray-100 bg-opacity-5 w-full flex flex-col items-start gap-4 text-sm"
+                class="mb-4 w-full flex flex-col items-start gap-4"
             >
-                <p class="">
-                    Hello, my name is <span class="text-gray-300"> Chico </span>
+                    <img class="w-20 h-20 rounded-full row-reverse" src="avi.jpeg" alt="énio" />
+                    <p class="">
+                      Hello, my name is <span class="text-gray-300"> Énio Carlos </span>
                     and I am a <span class="text-gray-300"
-                        >Frontend Engineer.</span
+                        >Software Engineer @ Corp.</span
                     >
                     <br />
+                  
                     I have accumulated almost <span class="text-gray-300"
                         >10 years</span
                     > of experience in the field working with companies like: <span
@@ -31,36 +33,22 @@ const blogPosts = await getCollection("blog");
                     as I can I contribute to <span class="text-gray-300"
                         >OpenSource</span
                     > projects, <span class="text-gray-300">streaming</span> every
-                    friday on youtube!
+                    friday on twitch!
                 </p>
             </div>
-            <h2 class="w-full text-base text-gray-200">My Channel</h2>
+            <h2 class="w-full text-base text-gray-200">Find me on</h2>
             <di
-                class="w-full flex justify-between items-center py-4 pl-4 my-4 border-[1px] border-gray-500 rounded bg-gray-100 bg-opacity-5"
+                class="w-full flex justify-between items-center pb-4 pt-2"
             >
-                <div class="flex items-center">
-                    <div class="relative">
-                        <img
-                            class="rounded-full border-gray-500 border-[1px]"
-                            width="70"
-                            height="70"
-                            src="https://yt3.googleusercontent.com/ytc/AIdro_kNyxFl6l-pZcXfb6CcuVZLzaogr1gB5WJxfF8dUmACMw=s900-c-k-c0x00ffffff-no-rj"
-                            alt="channel avi"
-                        />
-                        <img
-                            class="rounded-full absolute bottom-0 left-11"
-                            width="20"
-                            height="20"
-                            src="https://yt3.googleusercontent.com/584JjRp5QMuKbyduM_2k5RlXFqHJtQ0qLIPZpwbUjMJmgzZngHcam5JMuZQxyzGMV5ljwJRl0Q=s900-c-k-c0x00ffffff-no-rj"
-                            alt="youtube avi"
-                        />
-                    </div>
-                    <div class="flex flex-col pl-4">
-                        <h3 class="text-gray-200">@chicoo</h3>
-                        <h4>12,000 subscribers</h4>
-                    </div>
+                <div class="flex items-center gap-2 flex-wrap">
+                    <Social icon="x" username="@enio.carlos_" />
+                    <Social icon="instagram" username="@enio.carlos__" />
+                    <Social icon="youtube" username="@enio.carlos" />
+                    <Social icon="linkedin" username="@eniocarlos" />
+                    <Social icon="github" username="@eniodev" />
+                    <Social icon="threads" username="@enio.carlos__" />
+                    <Social icon="twitch" username="@enio.carlos" />
                 </div>
-                <Icon name="arrow-up-right-bold" class="mr-4 text-lg" />
             </di>
             <h2
                 class="w-full
