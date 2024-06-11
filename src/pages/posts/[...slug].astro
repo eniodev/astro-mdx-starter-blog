@@ -11,7 +11,7 @@ export async function getStaticPaths() {
         props: { entry },
     }));
 }
-// Gettig the post directly from the prop
+// Gettig the post directly from the props
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---

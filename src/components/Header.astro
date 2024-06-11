@@ -2,13 +2,15 @@
 import ThemeIcon from "../components/ThemeIcon.astro"
 ---
 
-<header class="w-[50%] flex justify-between align-center py-8">
-    <a href="/" class="text-xl text-white font-bold">[ˈɛ.ni.u]</a>
-    <nav class="navbar  flex gap-4 align-center text-sm">
-        <a href="#">Blog</a>
-        <a href="#">Projects</a>
-        <a href="#">Talks</a>
-        <a href="#">Gists</a>
-        <ThemeIcon />
-    </nav>
+<header class="w-full max-w-screen-md px-8 mx-auto">
+<div class="flex justify-between items-center py-8">
+<a href="/" class="text-xl text-white font-bold">[ˈɛ.ni.u]</a>
+<nav class="navbar flex gap-4 align-center text-sm">
+    <a href="#">Blog</a>
+    <a href="#">Projects</a>
+    <a href="#">Talks</a>
+    <a href="#">Gists</a>
+    <ThemeIcon />
+</nav>
+</div>
 </header>
