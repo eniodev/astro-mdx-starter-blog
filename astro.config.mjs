@@ -6,6 +6,14 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  // ...
-  integrations: [tailwind(), mdx(), icon()],
+  markdown: {
+    shikiConfig: {
+      theme: 'tokyo-night'
+    },
+    gfm: true,
+  },
+  integrations: [
+    tailwind(), 
+    mdx(), 
+    icon()],
 });
