@@ -1,9 +1,16 @@
 ---
+interface Props {
+    icon: string;
+    prefix?: string;
+    username: string;
+    domain?: string;
+}
 import { Icon } from "astro-icon/components";
-const { icon, username } = Astro.props;
+const { icon, prefix, username, domain } = Astro.props;
+const link = `https://${icon}.${domain ? domain : 'com'}/${prefix ? prefix : ''}${username}`;
 ---
 
-<button class="flex items-center justify-center border-[1px] border-gray-500 rounded-full bg-gray-100 bg-opacity-5 px-2.5">
+<a href={link} target="_blank" class="flex items-center justify-center border-[1px] border-gray-500 rounded-full bg-gray-100 bg-opacity-5 px-2.5">
     <Icon name={icon} />
-    <span class="text-sm">.com/{username}</span>
-</button>
+    <span class="text-sm">.com/@{username}</span>
+</a>
