@@ -2,7 +2,6 @@
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import Newsletter from "../components/Newsletter.astro"
-const { title } = Astro.props;
 ---
 
 <html lang="en" class="w-full h-full">
@@ -14,7 +13,7 @@ const { title } = Astro.props;
 
     <body class="w-full flex flex-col items-center bg-slate-950 text-gray-400">
         <Header />
-        <main class="w-full max-w-screen-md px-8 mx-auto min-h-screen flex flex-col gap-4 justify-start align-center pt-2">
+        <main class="w-full max-w-screen-md px-6 mx-auto min-h-screen flex flex-col gap-4 justify-start align-center pt-2">
             <slot />
             <Newsletter />
         </main>
