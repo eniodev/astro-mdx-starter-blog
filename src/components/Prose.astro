@@ -20,11 +20,21 @@ code .line:last-child:empty::before {
   content: none;
   counter-increment: none;
 }
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 </style>
 
 <div
   class="prose w-full max-w-screen-md mx-auto text-gray-400
   prose-h2:text-gray-200 prose-h3:text-gray-200 prose-h1:text-gray-200 prose-h1:my-1
+  prose-h1:text-2xl prose-h2:text-xl
   prose-b:text-gray-200
   prose-a:text-blue-400 prose-p:text-justify  
   prose-pre:border
