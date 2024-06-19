@@ -10,7 +10,7 @@ const { icon, prefix, username, domain } = Astro.props;
 const link = `https://${icon}.${domain ? domain : 'com'}/${prefix ? prefix : ''}${username}`;
 ---
 
-<a href={link} target="_blank" class="flex items-center justify-center border-[1px] border-gray-500 rounded-full bg-gray-100 bg-opacity-5 px-2.5">
+<a href={link} target="_blank" class="flex items-center justify-center border-[1px] border-gray-500 rounded-full bg-gray-100 bg-opacity-5 pl-2 pr-2.5 gap-1.5">
     <Icon name={icon} />
-    <span class="text-sm">.{domain ? domain : 'com'}/@{username}</span>
+    <span class="text-sm">@{username}</span>
 </a>
